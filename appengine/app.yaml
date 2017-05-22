@@ -1,0 +1,46 @@
+application: audiodrive3d
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+default_expiration: "30d"
+
+builtins:
+- deferred: on
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+
+handlers:
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+  expiration: "1s"
+
+- url: /(brochure\.html)
+  static_files: static/brochure.html
+  upload: static/brochure.html
+
+- url: /(favicon\.ico)
+  mime_type: image/png
+  static_files: static/\1
+  upload: static/favicon\.ico
+
+- url: /(robots\.txt)
+  mime_type: text/plain
+  static_files: static/\1
+  upload: static/robots\.txt
+
+- url: /(assets|audio|img|css|fonts|js|tmp)/(.*)
+  static_files: static/\1/\2
+  upload: static/(assets|audio|img|css|fonts|js|tmp)/(.*)

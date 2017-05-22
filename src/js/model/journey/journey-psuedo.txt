@@ -1,0 +1,36 @@
+  0123456789
+A XXXXX-----
+B -----XXX-- startAfter: A, delay: 0
+C ---X------ delay: 3, startWith: A
+D -XXXXXXXXX delay: 1, startWith: A
+E ----CA--B- stop layer
+
+init:
+	addToActive(first)
+
+setupActiveLayers: (currentLayer)
+
+	time = currentLayer.time
+	duration = currentLayer.duration
+
+	if (currentLayer.isComplete)
+		removeFromActive(currentLayer)
+		for each layer in sequence
+			if layer.delay
+				scheduleAddToActive(layer, layer.delay)
+				break
+
+	for each layer in sequence
+		if time >= layer.startTime
+			addToActive(layer)
+
+
+playActive:
+	for each layer in activeLayers
+		if (! layer.isPlaying)
+			layer.play()
+			layer.isPlaying = true
+
+onComplete:
+	layer.isComplete = true
+	setupActiveLayers(layer)

@@ -1,0 +1,33 @@
+//
+// Imports
+//
+
+// Compass mixins
+	@import "compass/css3";
+
+// Defaults
+@import 'modules/_clearfix.scss';
+@import 'modules/_normalize.scss';
+@import 'modules/_defaults.scss';
+@import 'modules/_vendor.scss';
+
+
+// Bourbon
+@import 'vendor/_bourbon.scss';
+
+
+// Components
+@import 'partials/_global.scss';
+@import 'partials/_splash.scss';
+@import 'partials/_controls.scss';
+@import 'partials/_footer.scss';
+@import 'partials/_hidden.scss';
+@import 'partials/_brochure.scss';
+@import 'partials/_visualiser.scss';
+@import 'partials/_intro.scss';
+
+
+// Other
+@import 'vendor/_external.scss';
+
+@import 'test/test';

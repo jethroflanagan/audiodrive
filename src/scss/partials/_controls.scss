@@ -1,0 +1,614 @@
+// 
+// Controls 
+//
+
+.m-push { 
+    position: relative; 
+    height: 100%;
+    left: 0;
+    @include vendor(transition,left 0.3s ease);
+
+    @include media($tablet-v) {
+    	@include vendor(transition,none);
+	    position: static;
+	}
+}
+
+.main {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	min-height: 420px;
+	z-index: 0;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	@include vendor(background-size,cover);
+	@include display(flex);
+	@include align-items(center);
+
+	//background-image: url('../img/controls/m-bg.jpg');
+
+	@include media($tablet-v) {
+		//background-image: url('../img/controls/tv-bg.jpg');
+	}
+
+	@include media($tablet-h) {
+		//background-image: url('../img/controls/th-bg.jpg');
+	}
+
+	@include media($desktop) {
+		//background-image: url('../img/controls/d-bg.jpg');
+	}
+
+
+	overflow: hidden; // for visualiser
+
+	.is-ie9 & {
+		text-align: center;
+	}
+	transition: height 0.7s ease-out;
+}
+
+
+
+// Debugged; IE11 issues with Flexbox 
+// Max-width workaround
+// https://alastairc.ac/2014/08/flexbox-ie11-bugs/
+
+.controls {
+	@include flex(1);
+
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 20px;
+	line-height: 1;
+	@include inline-block;
+	vertical-align: middle;
+	width: 90%;
+	
+	@include media($tablet-v) {
+		@include flex(auto);
+
+		max-width: 680px;
+		width: 680px;
+		margin: auto;
+		padding: 0px;
+		padding-top: 35px;
+		
+		@include inline-block;
+		vertical-align: middle;
+	}
+
+	.is-ie9 & {
+	}
+
+	transition: 1s opacity;
+	// max-height: 100%;
+}
+
+.control-item div {
+	position: relative;
+	cursor: pointer;
+	@include vendor-extra(box-shadow, 0 0 8px 2px rgba(255,255,255,0.25), inset 0 0 4px 3px rgba(0,0,0,0.2));
+	@include controls-transition;
+}
+
+
+.control-item {
+	position: relative;
+	@include vendor(transition,opacity 0.7s ease);
+}
+
+.control-item .loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.controls .control-item.control-hidden {
+	opacity: 0;
+
+}
+
+.control-item.lock {
+	opacity: 0.3;
+}
+.control-item.lock div {
+	cursor: default;
+}
+// for single lock
+.control-item div.lock {
+	opacity: 0.3;
+	cursor: default;
+}
+
+.control-item div:before,
+.control-item div:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: none;
+	background-position: center;
+	background-size: contain;
+	background-position: center center;
+	@include controls-bg-transition;
+}
+
+.control-item div:before {
+	opacity: 1;
+}
+
+.control-item div:after {
+	opacity: 0;
+}
+
+// .no-touch .control-item:not(.lock) div:hover,
+.control-active div {
+	background: rgba(255,255,255,0.3);
+	@include vendor-extra(box-shadow, 0 0 0 1px rgba(255,255,255,1), inset 0 0 4px 3px rgba(0,0,0,0.05));
+}
+
+.no-touch .control-item:not(.lock) div:hover:before,
+.control-active div:before {
+	opacity: 0;
+}
+
+.no-touch .control-item:not(.lock) div:hover:after,
+.control-active div:after {
+	opacity: 1;
+}
+
+
+//
+// Locations
+//
+
+.controls-location {
+	@include row();
+
+}
+
+.controls-location.reduced {
+	text-align: center;
+}
+
+.controls-location .control-item {
+	@include span-columns(4);
+}
+
+.controls-location .control-item div {
+	width: 95%;
+	height: 0;
+    padding-bottom: 95%;
+    border-radius: 100%;
+
+	@include media($tablet-v) {
+		max-width: 190px;
+		max-height: 190px;
+		height: 190px;
+		padding-bottom: 0;
+		border-radius: 100%;
+	}
+}
+
+.controls-location .control-item:nth-child(2) div {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.controls-location .control-item:nth-child(3) div {
+	float: right;
+}
+
+
+//
+// Other
+//
+
+.controls-other {
+	@include row();
+	// 20px to match PSD exactly, not recommended for iPhone 4
+	margin-top: 40px;
+
+	// To match PSD exactly - not recommended for height purposes & seamless transition
+	/*
+	@include media($phablet) {
+		margin-top: 50px;
+	}
+	*/
+
+	@include media($tablet-v) {
+		margin-top: 40px;
+	}
+}
+
+.controls-other {
+	text-align: center;
+}
+
+.controls-other .control-item {
+
+	@include span-columns(2.4);
+	float: none;
+	display: inline-block;
+
+	@include media($tablet-v) {
+		@include span-columns(2.4);
+		display: inline-block;
+		float: none;
+	}
+
+	.is-ie9 & {
+	}
+}
+
+.controls-other .control-item:nth-child(1) {
+	// @include shift(3);
+
+	@include media($tablet-v) {
+		@include shift(0);
+	}
+
+}
+
+.controls-other .control-item:nth-child(3) {
+	// @include shift(1.5);
+
+	@include media($tablet-v) {
+		@include shift(0);
+	}
+
+}
+
+.controls-other .control-item div {
+	margin-left: auto;
+	margin-right: auto;
+	width: 72%;
+	height: 0px;
+	padding-bottom: 72%;
+	border-radius: 72%;
+	// 20px to match PSD exactly, not recommended for iPhone 4
+	margin-bottom: 10px;
+
+	// To match PSD exactly - not recommended for height purposes & seamless transition
+	/* 
+	@include media($phablet) {
+		margin-bottom: 40px;
+	}
+	*/
+
+	@include media($tablet-v) {
+		max-width: 90px;
+		max-height: 90px;
+		height: 90px;
+		width: 90px;
+		padding-bottom: 0;
+		border-radius: 90px;
+	}
+}
+
+.controls-book {
+	text-align: center;
+}
+
+
+.controls-book .control-item {
+
+	@include span-columns(1.6);
+	float: none;
+	display: inline-block;
+
+	@include media($tablet-v) {
+		@include span-columns(1.6);
+		display: inline-block;
+		float: none;
+	}
+
+	.is-ie9 & {
+	}
+}
+
+.controls-book .control-item div {
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+	height: 0px;
+	padding-bottom: 65%;
+	border-radius: 65%;
+	// 20px to match PSD exactly, not recommended for iPhone 4
+	margin-bottom: 10px;
+
+	// To match PSD exactly - not recommended for height purposes & seamless transition
+	/* 
+	@include media($phablet) {
+		margin-bottom: 40px;
+	}
+	*/
+
+	@include media($tablet-v) {
+		max-width: 70px;
+		max-height: 70px;
+		height: 70px;
+		width: 70px;
+		padding-bottom: 0;
+		border-radius: 70px;
+	}
+}
+.controls-book .control-item:nth-child(1) {
+	// @include shift(3);
+
+	@include media($tablet-v) {
+		@include shift(0);
+	}
+
+}
+
+.controls-book .control-item:nth-child(2) {
+	// @include shift(1.5);
+
+	@include media($tablet-v) {
+		@include shift(0);
+	}
+
+}
+//
+// Individual Items
+//
+
+.control-item .beach:before {
+	background-image: url('../img/controls/icon-beach.png');
+}
+
+.control-item .beach:after {
+	background-image: url('../img/controls/icon-beach-active.png');
+}
+
+.control-item .mountain:before {
+	background-image: url('../img/controls/icon-mountain.png');
+}
+
+.control-item .mountain:after {
+	background-image: url('../img/controls/icon-mountain-active.png');
+}
+
+.control-item .city:before {
+	background-image: url('../img/controls/icon-city.png');
+}
+
+.control-item .city:after {
+	background-image: url('../img/controls/icon-city-active.png');
+}
+
+.control-item .night:before {
+	background-image: url('../img/controls/icon-night.png');
+}
+
+.control-item .night:after {
+	background-image: url('../img/controls/icon-night-active.png');
+}
+
+.control-item .thunder:before {
+	background-image: url('../img/controls/icon-thunder.png');
+}
+
+.control-item .thunder:after {
+	background-image: url('../img/controls/icon-thunder-active.png');
+}
+
+.control-item .window:before {
+	background-image: url('../img/controls/icon-window.png');
+}
+
+.control-item .window:after {
+	background-image: url('../img/controls/icon-window-active.png');
+}
+
+.control-item .star:before {
+	background-image: url('../img/controls/icon-star.png');
+}
+
+.control-item .star:after {
+	background-image: url('../img/controls/icon-star-active.png');
+}
+
+.control-item .key:before {
+	background-image: url('../img/controls/icon-key.png');
+}
+
+.control-item .key:after {
+	background-image: url('../img/controls/icon-key-active.png');
+}
+
+#information:before {
+	background-image: url('../img/controls/icon-information.png');
+}
+
+#information:after {
+	background-image: url('../img/controls/icon-information-active.png');
+}
+
+.control-item .hide-icon:before, .control-item .hide-icon:after {
+	background: none;
+}
+
+.control-active .beach, .control-active .mountain, .control-active .city {
+	cursor: default;
+}
+
+.control-item .book-twitter:before {
+	background-image: url('../img/controls/icon-twitter.png');
+}
+
+.control-item .book-twitter:after {
+	background-image: url('../img/controls/icon-twitter-active.png');
+}
+
+.control-item .book-twitter--single:before {
+	background-repeat: no-repeat;
+	background-image: url('../img/controls/icon-book-text.png');
+}
+
+.control-item .book-twitter--single:after {
+	background-repeat: no-repeat;
+	background-image: url('../img/controls/icon-book-text-active.png');
+}
+
+.control-item .book-form:before {
+	background-image: url('../img/controls/icon-form.png');
+}
+
+.control-item .book-form:after {
+	background-image: url('../img/controls/icon-form-active.png');
+}
+
+.controls-book .control-item.test-book-a {
+	margin-right: 0;
+	@include media($tablet-v) {
+		margin-right: 0;
+	}
+}
+
+// .test-book-a, .test-book-b {
+// 	display: none;
+// }
+
+// Uncomment for hover effect on icons
+/*
+.control-item div:hover:before {
+	opacity: 0;
+}
+
+.control-item div:hover:after {
+	opacity: 1;
+}
+*/
+.skip {
+	background: #777777;
+}
+
+.reduced .control-item {
+	float: none;
+	display: inline-block;
+}
+// single journey
+.single-journey .controls-location .control-item {
+	// width: 45%;
+	@include span-columns(4);
+	margin-right: -5%;
+	display: inline-block;
+	float: none;
+	// & > div {
+	// 	width: 190px;
+	// 	height: 190px;
+	// }
+
+}
+
+.single-journey .controls-location .control-item:nth-child(2),
+.single-journey .controls-location .control-item:nth-child(3) {
+	display: none;
+}
+.reduced-journey .controls-location {
+	margin-left: 5%;
+}
+// reduced journey
+.reduced-journey .controls-location .control-item {
+	@include span-columns(4);
+	display: inline-block;
+	float: none;
+	// margin-right: -5%;
+	// margin-right: 0;
+	// & > div {
+	// 	width: 95%;//190px;
+	// 	// height: 190px;
+	// }
+}
+
+.reduced-journey .controls-location .control-item:nth-child(3) {
+	display: none;
+}
+
+.info-helper {
+	text-align: center;
+	margin: 35px 0 20px 0;
+	transition: opacity 1s;
+}
+
+.info-helper.control-hidden {
+	opacity: 0;
+}
+
+.info-helper.info-helper--journey {
+	
+}
+
+.info-helper.info-helper--environment {
+}
+
+.info-helper-text {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+	text-shadow: rgba(0,0,0,0.6) 0 0 5px;
+}
+
+.controls-book .control-item div.book-twitter--single {
+	max-width: 196px;
+	max-height: 41px;
+	width: 196px;
+	height: 41px;
+	padding-bottom: 0;
+	border-radius: 70px;
+	// background-size: inherit;
+
+	// To match PSD exactly - not recommended for height purposes & seamless transition
+	/* 
+	@include media($phablet) {
+		margin-bottom: 40px;
+	}
+	*/
+
+	@include media($tablet-v) {
+		max-width: 196px;
+		max-height: 41px;
+		height: 41px;
+		width: 196px;
+		padding-bottom: 0;
+		border-radius: 70px;
+		// background-size: inherit;
+	}
+
+	&:before, &:after {
+		background-size: initial;
+	}
+}
+
+.is-test-book-a .controls-book .control-item {
+	width: 196px;
+}
+
+.info-controls {
+	bottom: 0;
+	display: none;
+
+	position: absolute;
+	width: 100%;
+
+	@include media($tablet-v) {
+		display: block;
+		position: absolute;
+
+		// for anim
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+}
+

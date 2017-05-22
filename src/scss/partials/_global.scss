@@ -1,0 +1,176 @@
+//
+// Breakpoints
+//
+
+$phablet: new-breakpoint(min-width 600px 12);
+$tablet-v: new-breakpoint(min-width 768px 12);
+$tablet-h: new-breakpoint(min-width 1024px 12);
+$desktop: new-breakpoint(min-width 1280px 12);
+
+
+//
+// Logo
+//
+
+.fade-in {
+	display: none;
+}
+
+.logo {
+	position: absolute;
+	right: 8%;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	z-index: 90;
+
+	@include retina-image("../img/m-logo-s", 160px 80px);
+
+	@include media($phablet) {
+		right: 8%;
+		top: 0px;
+		width: 160px;
+		height: 80px;
+		// width: 335px;
+		// height: 168px;
+
+		@include retina-image("../img/m-logo-s", 160px 80px);
+	}
+
+	@include media($tablet-v) {
+		right: 0px;
+		top: 40px;
+		width: 186px;
+		height: 96px;
+
+		@include retina-image("../img/logo", 186px 96px);
+	}
+}
+
+.logo--takeover {
+	z-index: 86;
+	position: absolute;
+}
+
+//
+// Type
+//
+
+@mixin bmw-type {
+	font-family: "bmwbold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style:   normal;
+  	font-weight:  700;
+  	-webkit-font-smoothing: antialiased;
+}
+
+
+//
+// Buttons
+//
+
+@mixin button {
+	color: white;
+	text-transform: none;
+	position: relative;
+    z-index: 9;
+
+	@include bmw-type;
+	@include linear-gradient(#1596FB, #1F69D4);
+}
+
+@mixin button-grey {
+	@include linear-gradient(#858585, #525252);
+}
+
+@mixin button-large {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 8px;
+	width: 155px;
+	font-size: 1.4rem;
+
+	@include media($phablet) {
+		font-size: 2.65rem;
+		width: 310px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 20px;
+		font-weight: 500;
+	}
+}
+
+@mixin button-small ($width) {
+	width: $width;
+	padding: 3px;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 1.3rem;
+	font-weight: 400;
+	display: inline-block;
+	text-decoration: none;
+}
+
+@mixin button-back {
+	position: fixed;
+	cursor: pointer;
+	width: 72px;
+	height: 30px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+	border-bottom: 1px solid #5C6160;
+	border-right: 1px solid #878787;
+	color: white;
+	margin-left: 5%;
+	text-align: center;
+	font-size: 1.8rem;
+	padding-top: 3px;
+	@include linear-gradient(#A9A9A9, #90908E);
+}
+
+
+//
+// Transitions
+//
+
+@mixin button-transition {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #2A6BD1;
+	opacity: 0;
+	z-index: -1;
+
+	@include vendor(transition,opacity 0.4s ease);
+}
+
+@mixin button-transition-enable {
+	opacity: 1;
+}
+
+@mixin controls-transition {
+	@include vendor-extra(transition, box-shadow 0.2s ease, background-color 0.8s ease)
+}
+
+@mixin controls-bg-transition {
+	@include vendor(transition, opacity 0.4s ease)
+}
+
+
+//
+// Mobile & Desktop visitors - for variable copy
+//
+
+.m-visitor {
+	@include media($tablet-v) {
+		display: none;
+	}
+}
+
+.d-visitor {
+	display: none;
+	@include media($tablet-v) {
+		display: block;
+	}
+}

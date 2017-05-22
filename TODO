@@ -1,0 +1,30 @@
+X	stopping journeys fully
+	sound in IE
+ 	Better audio crossfade curve
+/ 	Load sequence
+X 	Tracking
+/	Journey loops (slightly untidy)
+X	joy buttons
+X	Filters! (needs fade)
+X 	Transitions aren't holding state correctly
+X 	Window down kills layers
+X	tone down filter
+X	smooth start to looping clips (multisamples)
+ 	loadcheck for skipIntro
+ 	Neater skipIntro (start with journey)
+ 	Timing for audio
+ 	iPhone 5
+ 	loader on intro missing on mobile
+ 	IE CSS opacity http://css-tricks.com/css-transparency-settings-for-all-broswers/
+	mobile performance
+	IMPORTANT!! Copy for brower support
+
+For someone else:
+X 	loader
+X 	sound icon (no animation)
+X 	form styling
+X 	hover states [white border on hover; white fill on active]
+X 	white on mobile
+ 	
+X 	DAY JOURNEY CAR sounds like emergency stops on?
+

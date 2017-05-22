@@ -1,0 +1,239 @@
+@charset "UTF-8";
+
+//
+// Default Variables
+//
+
+$slick-dot-color: white !default;
+$slick-dot-color-active: #2A6BD1 !default;
+$slick-opacity-default: 1 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: .25 !default;
+
+//
+// Slider
+//
+
+.slick-initialized {
+    visibility: visible;
+}
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    .slick-loading & {
+        //background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+
+.slick-slider .slick-track {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+
+.slick-list,
+.slick-track {
+    height: 100%;
+    width: 100%;
+}
+
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+
+
+//
+// Arrows
+//
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    height: 30px;
+    width: 17px;
+    background-size: 17px 30px;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    color: transparent;
+    top: 50%;
+    margin-top: -10px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: url('../img/brochure/m-arrows-sprite.png');
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) {
+        background: url('../img/brochure/m-arrows-sprite@2x.png');
+    }
+
+    &:hover, &:focus {
+      outline: none;
+      opacity: $slick-opacity-on-hover;
+    }
+
+    &.slick-disabled {
+        opacity: $slick-opacity-not-active;
+    }
+}
+
+.slick-next {
+    background-position: 18px 0px;
+}
+
+.slick-prev {
+    left: 10px;
+    [dir="rtl"] & {
+        left:  auto;
+        right: 10px;
+    }
+}
+
+.slick-next {
+    right: 10px;
+    [dir="rtl"] & {
+        left:  10px;
+        right: auto;
+    }
+}
+
+.brochure-wrap > ul {
+    display: none !important;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -2px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+
+    @include media($tablet-v) {
+        display: none !important;
+    }
+
+    li {
+        position: relative;
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        margin: 0 2px;
+        padding: 0;
+        cursor: pointer;
+        background-color: $slick-dot-color;
+        border-radius: 5px;
+
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            height: 12px;
+            width: 12px;
+            outline: none;
+            line-height: 0;
+            font-size: 0;
+            color: transparent;
+            cursor: pointer;
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                  opacity: $slick-opacity-on-hover;
+                }
+            }
+        }
+
+        &.slick-active {
+            background-color: $slick-dot-color-active;
+            opacity: $slick-opacity-default;
+        }
+    }
+}

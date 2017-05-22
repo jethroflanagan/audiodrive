@@ -1,0 +1,298 @@
+//
+// Hidden
+//
+
+.collapsed {
+	// display: none;
+    position: static;
+    @include outer-container(100%);
+
+    @include media($tablet-v) {
+		position: absolute;
+		z-index: 98;
+		width: 100%;
+		bottom: 0px;
+	}
+}
+
+.hidden > div {
+	z-index: 99;
+	display: none;
+	position: absolute;
+    background: white;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+
+    @include media($tablet-v) {
+    	position: relative;
+		background: white;
+		overflow: auto;
+		z-index: 80;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 5px;
+	}
+}
+
+.hidden > div > h4 {
+	padding-left: 5%;
+    padding-right: 8%;
+	font-size: 4rem;
+	line-height: 1.1em;
+	text-transform: none;
+	margin-top: 85px;
+
+	@include media($phablet) {
+		font-size: 7.8rem;
+		margin-top: 120px;
+	}
+
+	@include media($tablet-v) {
+		margin: 0;
+		padding: 0;
+		font-size: 1.8rem;
+		text-transform: uppercase;
+	}
+}
+
+.close-panel:before {
+	content: "Back";
+
+	@include media($tablet-v) {
+		content: "\e604";
+	}
+}
+
+.close-panel {
+	@include button;
+    @include button-back;
+    font-weight: 700 !important;
+
+	@include media($tablet-v) {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		box-shadow: 0 0 0 0;
+		color: black;
+		text-align: center;
+		cursor: pointer;
+		width: auto;
+		content: "\e604";
+		line-height: 1;
+		font-size: 3rem;
+	}
+}
+
+
+
+//
+// Book Twitter
+//
+
+#book-social .form {
+
+	margin-top: 40px;
+
+	@include media($phablet) {
+		margin-top: 80px;
+	}
+
+	@include media($tablet-v) {
+		margin-top: 15px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-top: 1px dotted #999;
+		border-bottom: 1px dotted #999;
+		width: 395px;
+	}
+}
+
+#book-social form {
+	max-width: 90%;
+	margin-left: 5%;
+    margin-right: 5%;
+
+    @include media($tablet-v) {
+    	width: 395px;
+    	margin-left: 0;
+    	margin-right: 0;
+    }
+}
+
+#book-social form textarea {
+
+	width: 100% !important;
+	padding: 15px;
+	border: 2px solid black;
+	border-radius: 5px;
+	height: 100px;
+	resize: none;
+	font-size: 2rem;
+
+	@include media($phablet) {
+		font-size: 3.5rem;
+		height: 250px;
+	}
+
+	@include media($tablet-v) {
+		@include bmw-type;
+		border-radius: 0px;
+		width: 395px !important;
+		height: 170px;
+		background: #F2F2F2;
+		border: 0px;
+		font-size: 1.85rem;
+	}
+}
+
+#book-social form textarea:disabled {
+	color: #000;
+}
+
+#book-social form .submit {
+	@include button;
+	@include button-large;
+	float: right;
+	width: auto;
+	padding-right: 8px;
+	font-size: 1.8rem;
+	margin-top: 30px;
+
+
+	@include media($tablet-v) {
+		@include button-small(105);
+		width: 105px;
+		float: none;
+		margin-top: 10px;
+		border: 0;
+	}
+
+    .is-ie9 & {
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1596fb', endColorstr='#1f69d4',GradientType=0 );
+        @include media($tablet-v) {
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1596fb', endColorstr='#1f69d4',GradientType=0 );
+        }
+    }
+}
+
+
+#book-social form .submit:after {
+	@include button-transition;
+}
+
+#book-social form .submit:hover:after {
+	@include button-transition-enable;
+}
+
+
+
+//
+// Share
+//
+
+.share-buttons {
+
+	margin-top: 40px;
+
+	@include media($phablet) {
+		margin-top: 80px;
+	}
+
+	@include media($tablet-v) {
+		margin-top: 0px;
+		border-top: 1px dotted #999;
+		border-bottom: 1px dotted #999;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-top: 15px;
+		max-width: 395px;
+		width: 100%;
+	}
+
+}
+
+.share-buttons a {
+
+	@include bmw-type;
+	color: #222;
+	padding-top: 5px;
+    padding-bottom: 4px;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-transform: none;
+    font-size: 1.9rem;
+    cursor: pointer;
+    letter-spacing: -1px;
+    border-bottom: 2px solid #E6E6E6;
+    display: block;
+    text-decoration: none;
+
+    @include media($phablet) {
+		font-size: 3.7rem;
+		padding-top: 10px;
+    	padding-bottom: 8px;
+	}
+
+	@include media($tablet-v) {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		letter-spacing: 0;
+
+		@include button;
+		@include button-small(180px);
+	}
+
+    .is-ie9 & {
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1596fb', endColorstr='#1f69d4',GradientType=0 );
+        @include media($tablet-v) {
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1596fb', endColorstr='#1f69d4',GradientType=0 );
+        }
+    }
+}
+
+.share-buttons a:last-child {
+	border: 0px;
+}
+
+.share-buttons a i {
+	width: 40px;
+
+	@include media($phablet) {
+		width: 80px;
+	}
+
+	@include media($tablet-v) {
+		width: 20px;
+	}
+}
+
+.share-buttons a:after {
+	@include media($tablet-v) {
+		@include button-transition;
+	}
+}
+
+.share-buttons a:hover:after {
+	@include media($tablet-v) {
+		@include button-transition-enable;
+	}
+}
+
+.share-buttons > a > i {
+	display: block;
+	float: left;
+	padding-top: 2px;
+	padding-right: 10px;
+}
+
+// Flash support injects a container on the screen, but it is added to the DOM and extends the height, 
+// adding a scrollbar. This puts it on top of the screen to stop that.
+#SoundJSFlashContainer {
+	top: 0;
+}

@@ -1,0 +1,44 @@
+html,
+body {
+  max-width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font: 300 16px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #000;
+  color: black;
+}
+
+a, 
+a:hover, 
+a:active, 
+a:focus,
+form input,
+form input:hover,
+form input:active,
+form input:focus,
+form textarea,
+form textarea:hover,
+form textarea:active,
+form textarea:focus {
+   outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+input::-moz-focus-inner { 
+  border: 0; 
+}

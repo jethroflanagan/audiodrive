@@ -1,0 +1,68 @@
+.test {
+	.layers {
+	}
+
+	.layer {
+		background: #ccc;
+		margin: 4px 0;
+		position: relative;
+		// padding: 5px 0 5px 0;
+	}
+
+	.layer.is-active {
+		background: #49E257;
+	}
+
+	.layer__journey {
+		color: #fff;
+		font-weight: bold;
+		width: 130px;
+		background: #6B6B6B;
+		padding: 5px 0 5px 5px;
+		display: inline-block;
+		margin-left: 5px;
+		margin-right: -5px;
+	}
+	.is-active .layer__journey {
+		background: #174D64;
+	}
+
+	.layer__name {
+		color: #333;
+		font-weight: bold;
+		width: 150px;
+		background: #9A9B9A;
+		padding: 5px;
+		display: inline-block;
+	}
+
+	.layer__progress, .layer__duration {
+		padding: 5px;
+		display: inline-block;
+		width: 40px;
+	}
+
+	.is-active .layer__name {
+		color: #fff;
+		background: #0679AB;
+	}
+
+	.layer__percent-bk {
+		display: block;
+		background: #999;
+		height: 3px;
+		position: absolute;
+		left: 284px;
+		right: 0;
+		bottom: 0;
+	}
+
+	.layer__percent {
+		display: block;
+		background: #000;
+		height: 3px;
+		position: absolute;
+		left: 0;
+		width: 20%;
+	}
+}

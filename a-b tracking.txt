@@ -1,0 +1,44 @@
+When loaded
+index	name			value
+
+1		LoadingScreen	1CTA assigned
+1		LoadingScreen	2CTA assigned
+
+----------------------
+Clicks
+index	name			value
+
+1		LoadingScreen	1CTA: Click "Start Experience"
+
+1		LoadingScreen	2CTA: Click "Start Experience"
+1		LoadingScreen	2CTA: Click "Book a Test Drive"
+
+----------------------
+On seeing console
+index	name			value
+
+2		Console			LoadingScreen 1CTA -> 1CTA assigned
+2		Console			LoadingScreen 2CTA -> 1CTA assigned
+
+2		Console			LoadingScreen 1CTA -> 2CTA assigned
+2		Console			LoadingScreen 2CTA -> 2CTA assigned
+
+----------------------
+Clicks
+index	name			value
+	
+2		Console			LoadingScreen 1CTA -> 1CTA: Click "Console Book a Test Drive"
+2		Console			LoadingScreen 2CTA -> 1CTA: Click "Console Book a Test Drive"
+2		Console			LoadingScreen 1CTA -> 1CTA: Click "Footer: Book a Test Drive"
+2		Console			LoadingScreen 2CTA -> 1CTA: Click "Footer: Book a Test Drive"
+2		Console			LoadingScreen 1CTA -> 1CTA: Click "Footer: Book via Tweet"
+2		Console			LoadingScreen 2CTA -> 1CTA: Click "Footer: Book via Tweet"
+
+2		Console			LoadingScreen 1CTA -> 2CTA: Click "Console Twitter"
+2		Console			LoadingScreen 1CTA -> 2CTA: Click "Console Form"
+2		Console			LoadingScreen 2CTA -> 2CTA: Click "Console Twitter"
+2		Console			LoadingScreen 2CTA -> 2CTA: Click "Console Form"
+2		Console			LoadingScreen 1CTA -> 2CTA: Click "Footer: Book a Test Drive"
+2		Console			LoadingScreen 2CTA -> 2CTA: Click "Footer: Book a Test Drive"
+2		Console			LoadingScreen 1CTA -> 2CTA: Click "Footer: Book via Tweet"
+2		Console			LoadingScreen 2CTA -> 2CTA: Click "Footer: Book via Tweet"

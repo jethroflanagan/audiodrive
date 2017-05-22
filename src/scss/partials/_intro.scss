@@ -1,0 +1,38 @@
+.intro-explainer {
+	position: absolute;
+	z-index: 1;
+	color: white;
+	width: 100%;
+	opacity: 0;
+	text-align: center;
+}
+
+.intro-explainer-inner {
+	margin: 0 auto;
+	width: 80%;
+	// max-width: 510px;
+	display: inline-block;
+	h1 {
+		line-height: 20px;
+		font-size: 16px;
+		@include media($tablet-v) {
+			font-size: 2em;
+			line-height: 3.3rem;
+		}
+	}
+
+	img {
+		width: 176px;
+	}
+
+	h4 {
+		line-height: 12px;
+		font-size: 10px;
+		@include media($tablet-v) {
+			font-size: 1.8rem;
+			line-height: 2.1rem;
+		}
+	}
+
+
+}

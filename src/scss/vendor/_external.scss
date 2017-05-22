@@ -1,0 +1,144 @@
+//
+// SVG & Type
+//
+
+// BMW Type
+
+@font-face {
+  font-family: 'bmwbold';
+  src: url('../fonts/bmwtype.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/bmwtype.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/bmwtype.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/bmwtype.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/bmwtype.svg#9bddceb7dbc0d9d8866a51459a2b7c77') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+// SVG imports
+
+@font-face {
+	font-family: 'icons';
+	src:url('../fonts/icons.eot?-9ioucn');
+	src:url('../fonts/icons.eot?#iefix-9ioucn') format('embedded-opentype'),
+		url('../fonts/icons.woff?-9ioucn') format('woff'),
+		url('../fonts/icons.ttf?-9ioucn') format('truetype'),
+		url('../fonts/icons.svg?-9ioucn#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"], 
+[class^="slide-"], [class*=" slide-"],
+[class^="close-"], [class*="close-"] {
+	font-family: 'icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+footer [class^="icon-"], footer [class*=" icon-"] {
+	font-size: 2.4rem;
+}
+
+.share-buttons [class^="icon-"], .share-buttons [class*=" icon-"] {
+	
+	font-size: 2.7rem;
+
+	@include media($phablet) {
+		font-size: 5rem;
+	}
+
+	@include media($tablet-v) {
+		font-size: 1.8rem;
+	}
+}
+
+.social [class^="icon-"], .social [class*="icon-"] {
+	font-size: 2rem;
+}
+
+// SVG classes
+
+.icon-triangle-right:before {
+	content: "\e607";
+}
+
+.slide-next:before {
+	content: "\e602";
+}
+
+.slide-prev:before {
+	content: "\e603";
+}
+
+.icon-plus:before {
+	content: "\e606";
+}
+
+.icon-minus:before {
+	content: "\e607";
+}
+
+.icon-twitter-square:before {
+	content: "\f081";
+}
+
+.icon-facebook-square:before {
+	content: "\f082";
+}
+
+.icon-linkedin-square:before {
+	content: "\f08c";
+}
+
+.icon-envelope:before {
+	content: "\f0e0";
+}
+
+.icon-twitter:before {
+	content: "\f099";
+}
+
+.icon-facebook:before {
+	content: "\f09a";
+}
+
+.slide-next:before {
+	content: "\e602";
+}
+
+.slide-prev:before {
+	content: "\e603";
+}
+
+.icon-youtube:before {
+	content: "\e600";
+	font-size: 0.9em;
+	margin-right: 2px;
+}
+
+.icon-menu {
+	content: "";
+	background: url(../img/controls/menu.png) no-repeat;
+	height: 61px;
+	width: 67px;
+	@include inline-block;
+}
+
+.slide-close:before {
+	content: "Back";
+	@include media($tablet-v) {
+		content: "\e601";
+	}
+}
+
+// Brochure slider
+
+@import 'slick/_slick.scss';

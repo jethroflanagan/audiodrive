@@ -1,0 +1,15 @@
+@mixin vendor ($property, $value) {
+    -webkit-#{$property}:$value;
+    -moz-#{$property}:$value;
+    -ms-#{$property}:$value;
+    -o-#{$property}:$value;
+    #{$property}:$value;
+}
+
+@mixin vendor-extra ($property, $valueout, $valuein) {
+    -webkit-#{$property}:$valueout,$valuein;
+    -moz-#{$property}:$valueout,$valuein;
+    -ms-#{$property}:$valueout,$valuein;
+    -o-#{$property}:$valueout,$valuein;
+    #{$property}:$valueout,$valuein;
+}

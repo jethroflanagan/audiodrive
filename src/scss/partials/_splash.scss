@@ -1,0 +1,466 @@
+//
+// Splash
+//
+$text-shadow-dark: none;//0px 0px 35px #000;
+$text-shadow-light: none;//0px 0px 35px #fff;
+
+.splash {
+	display: none;
+}
+
+.no-js .splash {
+	display: block;
+}
+
+.splash-outer {
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+.splash {
+	position: fixed;
+	right: 0px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	padding-left: 8%;
+	padding-right: 8%;
+	z-index: 85;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: white;
+	text-shadow: $text-shadow-dark;
+
+	background-image: url('../img/splash/m-bg.jpg');
+
+	@include vendor(background-size,cover);
+
+	@include media($tablet-v) {
+		padding-left: 5%;
+		padding-right: 5%;
+		background-image: url('../img/splash/tv-bg.jpg');
+	}
+
+	@include media($tablet-h) {
+		background-image: url('../img/splash/th-bg.jpg');
+	}
+
+	@include media($desktop) {
+		background-image: url('../img/splash/d-bg.jpg');
+	}
+
+	.lt-ie9 & {
+		background-position-x: right; // MAYBE?
+	}
+}
+
+.splash-con {
+	position: relative;
+	top: 90px;
+	text-transform: uppercase;
+	color: black;
+	text-shadow: $text-shadow-light;
+	height: 90%;
+	z-index: 2;
+	@include media($phablet) {
+		top: 100px;
+	}
+
+	@include media($tablet-v) {
+		position: absolute;
+		bottom: 50px;
+		height: auto;
+		color: black;
+		text-shadow: $text-shadow-dark;
+		top: 50px;
+		right: 50px;
+		left: 50px;
+	}
+
+	@include media($tablet-h) {
+		bottom: 40px;
+		top: 40px;
+		left: 40px;
+		right: 40px;
+		color: white;
+		text-shadow: $text-shadow-dark;
+	}
+
+	@include media($desktop) {
+		bottom: 45px;
+		top: 45px;
+		left: 45px;
+		right: 45px;
+		color: white;
+		text-shadow: $text-shadow-dark;
+
+	}
+
+	// .is-form & {
+	// 	color: black;
+	// 	@include media($phablet) {
+	// 		color: black;
+	// 	}
+	// 	@include media($tablet-h) {
+	// 		color: white;
+	// 	}
+	// 	@include media($desktop) {
+	// 		color: white;
+	// 	}
+	// }
+}
+
+	.splash-inner {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		display: block;
+		.loading-percent {
+			position: relative;
+			text-shadow: none;
+			font-size: 40px;
+			margin: 0 0 20px 0;
+
+			@include media($phablet) {
+				margin: 0 0 -20px 0;
+			}
+			@include media($tablet-v) {
+				// margin: 0 0 -30px 0;
+				font-size: 50px;
+				margin: 0;
+			}
+			@include media($tablet-h) {
+				font-size: 60px;
+				top: 30px;
+			}
+			@include media($desktop) {
+				font-size: 74px;
+			}
+		}
+	}
+
+	.splash-inner-secondary {
+		width: 100%;
+		@include media($phablet) {
+			width: 80%;
+		}
+		// @include media($tablet-h) {
+		// 	width: 770px;
+		// }
+		// @include media($desktop) {
+		// 	width: auto;
+		// }
+	}
+
+.splash-con h1 {
+	font-size: 3.4rem;
+	line-height: 1em;
+
+	@include media($phablet) {
+		font-size: 3.4rem;
+	}
+
+	@include media($tablet-v) {
+		font-size: 3.4rem;
+	}
+	
+	@include media($desktop) {
+		font-size: 4.4rem;
+	}
+
+	@include bmw-type;
+
+
+}
+
+.splash-con h4 {
+	margin-top: 10px;
+	padding-right: 25px;
+	font-size: 1.8rem;
+	line-height: 1.3em;
+
+	@include media($phablet) {
+		margin-top: 15px;
+		padding-right: 50px;
+		font-size: 1.8rem;
+		line-height: 1.2em;
+	}
+
+	@include media($tablet-v) {
+		margin-top: 2px;
+		font-size: 1.8rem;
+	}
+
+	@include media($desktop) {
+		font-size: 2.75rem;
+	}
+
+	@include bmw-type;
+
+	.lt-ie9 & {
+		@include media($phablet) {
+			padding-right: 0;
+			margin-top: 10px;
+		}
+	}
+}
+
+.start {
+	@include button;
+	@include button-large;
+
+	font-size: 1.3rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	position: absolute;
+	bottom: -40px;
+	cursor: pointer;
+	overflow: hidden;
+	transition: 
+		width 0.3s ease-out,
+		padding 0.3s ease-out;
+		// position:static;
+	margin-top: 10px;
+
+	@include media($phablet) {
+		// position: static;
+		// bottom: 40px;
+		margin-top: 25px;
+		@include button-small(180px);
+	}
+
+	@include media($tablet-v) {
+		// position: static;
+		position: relative;
+		bottom: 0px;
+		margin-top: 25px;
+		@include button-small(180px);
+	}
+
+	@include media($tablet-h) {
+		bottom: 0;
+	}
+
+	.is-ie9 & {
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1596fb', endColorstr='#1f69d4',GradientType=0 );
+	}
+
+	// @include media($desktop) {
+	// 	bottom: 80px;
+	// }
+
+	// for animation
+	visibility: hidden;
+	
+	&:after {
+		@include button-transition;
+	}
+
+	display: none;
+	.is-test-splash-a & {
+		display: inline-block;
+	}
+
+}
+
+.start--book {
+	@include button-grey;
+	margin-left: 160px;
+	.is-ie9 & {
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#858585', endColorstr='#525252',GradientType=0 );
+	}
+	&:after {
+		@include button-transition;
+		background: #777;
+	}
+	@include media($phablet) {
+		margin-left: 185px;
+	}
+	@include media($tablet-v) {
+		margin-left: 0;
+	}
+
+	display: none;
+	.is-test-splash-a & {
+		display: inline-block;
+	}
+}
+
+
+
+.no-touch .start:hover:after {
+	@include button-transition-enable;
+}
+
+
+// Introduction variables
+
+.new-visitor {
+	display: block;
+	text-shadow: $text-shadow-dark;
+}
+
+.new-visitor--intro {
+	text-shadow: $text-shadow-light;
+	h1 {
+		font-size: 2.4rem;
+	}
+	h4 {
+		font-size: 1.6rem;
+	}
+	@include media($phablet) {
+		padding-right: 180px;
+	}
+	@include media($tablet-v) {
+		padding-right: 180px;
+		color: black;
+		text-shadow: $text-shadow-light;
+		h1 {
+			font-size: 3.4rem;
+		}
+		h4 {
+			font-size: 1.8rem;
+		}
+	}
+	@include media($tablet-h) {
+		color: white;
+	}
+	@include media($desktop) {
+		color: white;
+		padding-right: 180px;
+	}
+}
+
+
+.ref-visitor {
+	display: none;
+}
+
+.js-disabled-visitor {
+	display: none;
+}
+
+.no-js .js-disabled-visitor {
+	display: block;
+}
+
+.no-js .new-visitor,
+.no-js .ref-visitor {
+	display: none;
+}
+
+.no-js .start,
+.outdated-browser .start {
+	display: none;
+}
+
+.outdated-browser-visitor {
+	display: none;
+}
+
+.outdated-browser .outdated-browser-visitor {
+	display: block;
+	margin-top: 110px;
+	margin-left: 600px;
+}
+
+.outdated-browser .new-visitor,
+.outdated-browser .ref-visitor,
+.outdated-browser .js-disabled-visitor {
+	display: none;
+}
+
+.splash-dark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #000;
+	z-index: 1;
+	opacity: 0;
+	display: none;
+}
+
+.loading {
+	position: absolute;
+	bottom: 50px;
+	color: white;
+	@include media($phablet) {
+		bottom: 100px;
+		// color: black;
+	}
+	@include media($tablet-v) {
+		bottom: 0;
+	}
+	@include media($tablet-h) {
+		position: relative;
+		bottom: auto;
+	}
+}
+
+.intro-loaded-text {
+	opacity: 0;
+	text-shadow: $text-shadow-light;
+	@include media($tablet-v) {
+		text-shadow: $text-shadow-dark;
+	}
+}
+
+// specificity
+.splash-con h1.start-large {
+	position: relative;
+	font-size: 50px;
+	padding-right: 0;
+	visibility: hidden;
+	top: 30px;
+
+	@include inline-block;
+	@include media($phablet) {
+		padding-right: 90px;
+	}
+	@include media($tablet-v) {
+		font-size: 50px;
+	}
+	@include media($tablet-h) {
+		font-size: 60px;
+	}
+	@include media($desktop) {
+		font-size: 74px;
+	}
+}
+
+.start-arrow {
+	background-image: url('../img/splash/start-arrow-black.png');
+	display: block;
+	width: 60px;
+	height: 60px;
+	background-size: cover;
+	position: static;
+	right: auto;
+	top: auto;
+	margin-top: 10px;
+
+	@include media($phablet) {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		margin-top: -25px;
+		width: 50px;
+		height: 50px;
+	}
+	// @include media($tablet-v) {
+	// }
+	@include media($tablet-h) {
+		background-image: url('../img/splash/start-arrow.png');
+		width: 60px;
+		height: 60px;
+		margin-top: -30px;
+	}
+	@include media($desktop) {
+		width: 70px;
+		height: 70px;
+		margin-top: -35px;
+	}
+}

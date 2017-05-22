@@ -1,0 +1,475 @@
+//
+// Brochure
+//
+.brochure-loading {
+    padding: 17px 50px;
+    margin-top: 0;
+    position: absolute;
+}
+
+.brochure {
+    position: absolute;
+	top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 100%;
+    display: none;
+    z-index: 95;
+
+    @include bmw-type;
+}
+
+.brochure-wrap {
+    width: 100%;
+    padding-bottom: 50px;
+
+    @include media($tablet-v) {
+        height: 100%;
+        padding-bottom: 0px;
+        visibility: hidden;
+    }
+}
+
+.slide {
+    position: relative;
+    height: auto;
+
+    @include media($tablet-v) {
+
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        padding-top: 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        @include vendor(background-size,cover);
+    }
+
+    @include media($desktop) {
+        padding: 60px;
+    }
+
+}
+
+.slide h1:before {
+    content: "\e605";
+    @include button;
+    @include button-small(20);
+    font-size: 1.1rem;
+    line-height: 1em;
+    font-family: 'icons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 0;
+    padding-top: 5px;
+    float: left;
+    margin-right: 15px;
+    z-index: 1;
+    margin-top: 5px;
+    -webkit-font-smoothing: none;
+
+    @include media($phablet) {
+        width: 40px;
+        height: 40px;
+        padding-top: 9px;
+        font-size: 2.2rem;
+        margin-right: 25px;
+    }
+
+    @include media($tablet-v) {
+        display: none;
+    }
+}
+
+.slide h1.m-open:before {
+    content: "\e606";
+    -webkit-font-smoothing: none;
+}
+
+
+.slide h1 {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-transform: none;
+    font-size: 1.88rem;
+    cursor: pointer;
+    color: #666;
+    letter-spacing: -1px;
+    border-top: 2px solid #E6E6E6;
+
+    @include media($phablet) {
+        font-size: 3.4rem;
+        line-height: 4.4rem;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    @include media($tablet-v) {
+        border-top: 0;
+        margin: 0;
+        padding-bottom: 0;
+        margin-top: 15px;
+        font-size: 2.55rem;
+        line-height: 1em;
+        margin-bottom: 20px;
+        padding-left: 0px;
+        cursor: auto;
+        color: inherit;
+        text-transform: uppercase;
+    }
+    
+    @include media($desktop) {
+        font-size: 3.7rem;
+        cursor: default;
+        padding: 0;
+    }
+}
+
+.slide:first-child h1 {
+    border-top: 0px;
+} 
+
+.slide h1:after {
+    content: ".";
+    @include media($tablet-v) {
+        content: "";
+    }
+}
+
+.brochure-content {
+    display: none;
+    @include media($tablet-v) {
+        display: block !important;
+    }
+}
+
+.brochure-content p {
+    margin: 0;
+    padding: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 1.2rem;
+    line-height: 1.4em;
+    font-family: "Helvetica", "arial", sans-serif;
+    font-weight: normal;
+    color: #222;
+
+    @include media($phablet) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-size: 1.8rem;
+    }
+
+    @include media($tablet-v) {
+        color: black;
+        padding: 0;
+        font-size: 1.6rem;
+        line-height: 1.3em;
+        @include bmw-type;
+    }
+
+    @include media($desktop) {
+        font-size: 1.1em;
+        padding-right: 50px;
+    }
+}
+
+.slide-close {
+    @include button;
+    @include button-back;
+    font-weight: 700 !important;
+
+    @include media($tablet-v) {
+        @include button;
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 99;
+        padding: 2px;
+        text-decoration: none;
+        // reset
+        box-shadow: 0 0 0;
+        border: 0;
+        height: auto;
+        width: auto;
+        margin: 0;
+        font-size: 1em;
+        font-weight: normal !important;
+    }
+
+    .is-ie9 & {
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1596fb', endColorstr='#1f69d4',GradientType=0 );
+        @include media($tablet-v) {
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1596fb', endColorstr='#1f69d4',GradientType=0 );
+        }
+    }
+
+}
+
+.slide-close:after {
+    @include media($tablet-v) {
+        @include button-transition;
+    }
+}
+
+.slide-close:hover:after {
+    @include media($tablet-v) {
+        @include button-transition-enable;
+    }
+}
+
+.slide-details {
+    margin-top: 20px;
+    display: none;
+    @include media($desktop) {
+        display: block;
+    }
+}
+
+.slide-details a {
+    background: white;
+    text-decoration: none;
+    padding: 2px;
+    font-size: 2.4rem;
+    float: left;
+    color: black;
+}
+
+.slide-count {
+    float: left;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.35rem;
+}
+
+
+// Slide Backgrounds
+.s1 {
+    @include media($tablet-v) {
+        background-image: url('../img/brochure/tv-s1.jpg');
+    }
+    @include media($tablet-h) {
+        background-image: url('../img/brochure/th-s1.jpg');
+    }
+    @include media($desktop) {
+        background-image: url('../img/brochure/d-s1.jpg');
+    }
+}
+
+.s2 {
+    @include media($tablet-v) {
+        background-image: url('../img/brochure/tv-s2.jpg');
+        color: black;
+    }
+    @include media($tablet-h) {
+        background-image: url('../img/brochure/th-s2.jpg');
+        color: white;
+    }
+    @include media($desktop) {
+        background-image: url('../img/brochure/d-s2.jpg');
+    }
+}
+
+.s3 {
+    @include media($tablet-v) {
+        background-image: url('../img/brochure/tv-s3.jpg');
+    }
+    @include media($tablet-h) {
+        background-image: url('../img/brochure/th-s3.jpg');
+    }
+    @include media($desktop) {
+        background-image: url('../img/brochure/d-s3.jpg');
+    }
+}
+
+.s4 {
+    @include media($tablet-v) {
+        background-image: url('../img/brochure/tv-s4.jpg');
+    }
+    @include media($tablet-h) {
+        background-image: url('../img/brochure/th-s4.jpg');
+        color: white;
+    }
+    @include media($desktop) {
+        background-image: url('../img/brochure/d-s4.jpg');
+    }
+}
+
+
+// Slide header width (for text wraps)
+
+.s2 h1 {
+    @include media($tablet-v) {max-width: 200px;}
+    @include media($desktop) {max-width: 320px;}
+}
+
+.s3 h1 {
+    @include media($tablet-v) {max-width: 200px;}
+    @include media($desktop) {max-width: 240px;}
+}
+
+
+.s4 h1 {
+    @include media($tablet-v) {max-width: 205px;}
+    @include media($desktop) {max-width: 310px;}
+}
+
+
+// Slide content
+
+.s1 .brochure-content {
+    @include media($tablet-v) {max-width: 400px;}
+    @include media($tablet-h) {max-width: 400px;}
+    @include media($desktop) {max-width: 350px;}
+}
+
+.s2 .brochure-content {
+    @include media($tablet-v) {max-width: 550px;}
+    @include media($tablet-h) {max-width: 270px;}
+    @include media($desktop) {max-width: 350px;}
+}
+
+.s2 .brochure-content p {
+    @include media($tablet-h) {color: white;}
+}
+
+.s3 .brochure-content {
+    @include media($tablet-v) {max-width: 550px;}
+    @include media($tablet-h) {max-width: 600px;}
+    @include media($desktop) {max-width: 350px;}
+}
+
+.download {
+    @include button;
+    @include button-small(110px);
+    @include media($desktop) {
+        width: 180px;
+        margin-top: 5px;
+    }
+}
+
+.download:after{
+    @include button-transition;
+}
+
+.download:hover:after{
+    @include button-transition-enable;
+}
+
+
+//
+// Mobile only elements
+//
+
+.m-scroll-helper {
+    min-height: 100%;
+    height: auto;
+    background: white;
+    @include media($tablet-v) {
+        height: 100%;
+    }
+}
+
+.m-intro {
+    padding-top: 20px;
+    @include media($tablet-v) {
+        display: none;
+    }
+}
+
+.m-intro-slider,
+.m-sub-slider {
+    width: 100%;
+    height: 200px;
+    clear: both;
+    overflow-y: hidden;
+    @include media($phablet) {
+        height: 400px;
+    }
+}
+
+.m-sub-slider {
+    margin-top: 10px;
+    @include media($tablet-v) {
+        display: none !important;
+    }
+}
+
+.m-intro-slider div,
+.m-sub-slider div {
+    height: 100%;
+}
+
+.m-slide {
+    background-repeat: no-repeat;
+    background-position: center center;
+    @include vendor(background-size,cover);
+}
+
+.m-intro-padding {
+    padding: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.m-intro-header {
+    font-size: 2.62rem;
+    line-height: 1.2em;
+    color: #262626;
+    // for same as psd - 30px margin top - not recommended
+    margin-top: 20px;
+    letter-spacing: -1px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    @include media($phablet) {
+        font-size: 5rem;
+        // for same as psd - 75px margin top - not recommended
+        margin-top: 40px;
+    }
+}
+
+.m-intro-watch {
+    margin-top: 30px;
+}
+
+.m-intro-watch a {
+    @include linear-gradient(#828282, #535353);
+
+    padding: 7px;
+    padding-left: 10px;
+    max-width: 150px;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+
+    @include media($phablet) {
+        font-size: 2.4rem;
+        max-width: 310px;
+        padding: 17px;
+        padding-left: 20px;
+        margin-top: 32px;
+        margin-bottom: 25px;
+    }
+}
+
+.m-s1 {
+    background-image: url('../img/brochure/d-s1.jpg');
+}
+
+.m-s2 {
+    background-image: url('../img/brochure/d-s2.jpg');
+}
+
+.m-s3 {
+    background-image: url('../img/brochure/d-s3.jpg');
+}

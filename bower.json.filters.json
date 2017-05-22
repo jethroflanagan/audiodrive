@@ -1,0 +1,42 @@
+{
+  "name": "bmw-f45-launch-campaign",
+  "version": "0.0.1",
+  "authors": [
+    "Jethro Flanagan <jethro@native.co.za>"
+  ],
+  "description": "Testing mobile first audio support for smartphones->tablet->desktop",
+  "main": "src/index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "app",
+    "audio",
+    "sound",
+    "responsive",
+    "mobile"
+  ],
+  "license": "Native",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "scr/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "requirejs": "~2.1.14"
+  },
+  "devDependencies": {
+    "gsap": "~1.14.2",
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.1",
+    // "SoundJS-filters": "https://jethro-native@bitbucket.org/jethro-native/soundjs-filters.git",
+    "SoundJS": "~0.6.0",
+    "TouchSwipe": "https://github.com/mattbryson/TouchSwipe-Jquery-Plugin.git",
+    "slick": "*"
+  }
+}
